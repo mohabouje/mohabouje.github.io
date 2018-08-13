@@ -34,5 +34,22 @@ void mohabouje::learn(const Something& something) noexcept {
     }
 }
 ```
+## Education
 
-## 
+- MSc Telecommunications Engineering
+
+  - Advanced Digital Signal Processing & Telecommunications Systems
+  - Algorithm Engineering and Data Processing
+  - Electronic Engineering
+  - Embedded Software Development
+  - **Thesis:** Design and implementation of a multi-platform application that implements a local positioning system (LPS) based on the Time-Of-Flight of the signal using the sound/ultrasound spectral frequencies.
+
+- BSc Telecommunications Engineering 
+
+  - Telecommunications Systems Engineering
+  - Analog/Digital Signal Processing
+  - Analog/Digital Systems Engineering
+  - Electronic Engineering
+  - Software Engineering: Algorithmic, Data Structures and Design Pattern
+  - **Thesis:** Design and implementation of an application that process and extracts audio properties in real time for medical usage. The application implements the main generic DSP algorithms to display the different acoustic properties in real time.
+
