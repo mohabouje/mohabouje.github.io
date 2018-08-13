@@ -6,7 +6,7 @@ From a small town located in the south of Spain. Yet another *Spaniard* passiona
 
 This Latin phrase fits me like a glove. 
 
-From an early age, I was characterized by my seriousness and dedication to study and sports, obtaining good educational results and even playing in some   .I used to spend hours and hours exercising, trying to figure out how to improve my skills. I did athletics, rugby & football for years, a considerable amount of injuries and fractures can prove it.
+From an early age, I was characterized by my seriousness and dedication to study and sports, obtaining good educational results and even playing in some semi-professional clubs. I used to spend hours and hours exercising, trying to figure out how to improve my skills. I did athletics, rugby & football for years, a considerable amount of injuries and fractures can prove it.
 
 I started coding when I got my first PC around 16. I remember my first C code; it still makes my hair stand on end. Ever since that moment, I knew I was born to be an engineer. Nowadays, I hold an MSc in Telecommunications Engineer from the University of Granada, Spain with a strong background in Software Engineering & Digital Signal Processing.
 
@@ -22,18 +22,6 @@ I am continuously trying to figure out the best practices and useful design patt
 
 **I am an active open-source contributor.** I have personally been involved very intimately in projects linked to cutting-edge technologies by designing robust algorithms related to generic fields like digital signal processing, positioning systems, big data analysis and machine learning.
 
-
-
-```c++
-template <typename Something>
-void mohabouje::learn(const Something& something) noexcept {
-    if (anyKnowledge(something)) {
-        increaseKnowledge(something);
-    } else {
-        addKnowledge(something);
-    }
-}
-```
 ## Education
 
 - MSc Telecommunications Engineering
@@ -52,4 +40,16 @@ void mohabouje::learn(const Something& something) noexcept {
   - Electronic Engineering
   - Software Engineering: Algorithmic, Data Structures and Design Pattern
   - **Thesis:** Design and implementation of an application that process and extracts audio properties in real time for medical usage. The application implements the main generic DSP algorithms to display the different acoustic properties in real time.
+  
+  
+```c++
+template <typename Something>
+void mohabouje::learn(const Something& something) noexcept {
+    if (anyKnowledge(something)) {
+        increaseKnowledge(something);
+    } else {
+        addKnowledge(something);
+    }
+}
+```
 
