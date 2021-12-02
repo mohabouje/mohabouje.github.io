@@ -41,7 +41,7 @@
     $('#to-top').click(function() {
         $('html, body').animate({
             scrollTop: 0
-        }, 1000);
+        }, 500);
     });
 
     // Scroll to first element
@@ -49,7 +49,7 @@
         var scrollDistance = $('#lead').next().offset().top;
         $('html, body').animate({
             scrollTop: scrollDistance + 'px'
-        }, 1000);
+        }, 500);
     });
 
     // Create timeline
@@ -91,8 +91,8 @@
     // Load additional projects
     $('#view-more-projects').click(function(e){
         e.preventDefault();
-        $(this).fadeOut(1000, function() {
-            $('#more-projects').fadeIn(1000);
+        $(this).fadeOut(300, function() {
+            $('#more-projects').fadeIn(300);
         });
     });
 
