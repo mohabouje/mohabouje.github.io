@@ -526,9 +526,6 @@ footer {
         list-style: none;
         padding: 0;
         margin: 0;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
     }
 
     li {
@@ -536,6 +533,7 @@ footer {
         font-size: 0.9em;
         padding-left: 20px;
         position: relative;
+        margin-bottom: 8px;
 
         &:before {
             content: '\f111';
