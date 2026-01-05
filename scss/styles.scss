@@ -36,7 +36,7 @@
 */
 
 // Define base and accent colors
-$base-color: #3498db;
+$base-color: #27ae60;
 $base-color-hover: color.adjust($base-color, $lightness: -10%);
 
 // Define background colors
@@ -395,7 +395,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba($base-color-hover, 0.8);
+    background: rgba(#1e8449, 0.7);
     z-index: 1;
 }
 
@@ -609,6 +609,15 @@ footer {
         color: $heading;
         display: inline-block;
         margin: 0;
+
+        a {
+            color: $base-color;
+            text-decoration: none;
+
+            &:hover {
+                color: $base-color-hover;
+            }
+        }
     }
 
     h4 {
