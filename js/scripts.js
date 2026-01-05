@@ -1,35 +1,33 @@
 /*!
     Title: Dev Portfolio Template
-    Version: 1.2.1
-    Last Change: 08/27/2017
-    Author: Ryan Fitzgerald
-    Repo: https://github.com/RyanFitzgerald/devportfolio-template
-    Issues: https://github.com/RyanFitzgerald/devportfolio-template/issues
+    Version: 2.0.0
+    Last Change: 01/05/2026
+    Author: Mohammed Boujemaoui
+    Repo: https://github.com/mohabouje/mohabouje.github.io
 
     Description: This file contains all the scripts associated with the single-page
     portfolio website.
 */
 
-
-
 (function($) {
+    'use strict';
 
     // Remove no-js class
     $('html').removeClass('no-js');
 
-    // Animate to section when nav is clicked
-    $('header a').click(function(e) {
-
+    // Smooth scroll to section when nav is clicked
+    $('header a').on('click', function(e) {
         // Treat as normal link if no-scroll class
         if ($(this).hasClass('no-scroll')) return;
 
         e.preventDefault();
-        var heading = $(this).attr('href');
-        var scrollDistance = $(heading).offset().top;
+        const heading = $(this).attr('href');
+        const scrollDistance = $(heading).offset().top;
+        const duration = Math.abs(window.pageYOffset - scrollDistance) / 5;
 
         $('html, body').animate({
-            scrollTop: scrollDistance + 'px'
-        }, Math.abs(window.pageYOffset - $(heading).offset().top) / 5);
+            scrollTop: scrollDistance
+        }, duration);
 
         // Hide the menu once clicked if mobile
         if ($('header').hasClass('active')) {
@@ -38,58 +36,57 @@
     });
 
     // Scroll to top
-    $('#to-top').click(function() {
+    $('#to-top').on('click', function() {
         $('html, body').animate({
             scrollTop: 0
         }, 500);
     });
 
     // Scroll to first element
-    $('#lead-down span').click(function() {
-        var scrollDistance = $('#lead').next().offset().top;
+    $('#lead-down span').on('click', function() {
+        const scrollDistance = $('#lead').next().offset().top;
         $('html, body').animate({
-            scrollTop: scrollDistance + 'px'
+            scrollTop: scrollDistance
         }, 500);
     });
 
     // Create timeline
     $('#experience-timeline').each(function() {
-
-        $this = $(this); // Store reference to this
-        $userContent = $this.children('div'); // user content
+        const $timeline = $(this);
+        const $userContent = $timeline.children('div');
 
         // Create each timeline block
         $userContent.each(function() {
-            $(this).addClass('vtimeline-content').wrap('<div class="vtimeline-point"><div class="vtimeline-block"></div></div>');
+            $(this).addClass('vtimeline-content')
+                   .wrap('<div class="vtimeline-point"><div class="vtimeline-block"></div></div>');
         });
 
         // Add icons to each block
-        $this.find('.vtimeline-point').each(function() {
+        $timeline.find('.vtimeline-point').each(function() {
             $(this).prepend('<div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div>');
         });
 
         // Add dates to the timeline if exists
-        $this.find('.vtimeline-content').each(function() {
-            var date = $(this).data('date');
-            if (date) { // Prepend if exists
-                $(this).parent().prepend('<span class="vtimeline-date">'+date+'</span>');
+        $timeline.find('.vtimeline-content').each(function() {
+            const date = $(this).data('date');
+            if (date) {
+                $(this).parent().prepend(`<span class="vtimeline-date">${date}</span>`);
             }
         });
-
     });
 
     // Open mobile menu
-    $('#mobile-menu-open').click(function() {
+    $('#mobile-menu-open').on('click', function() {
         $('header, body').addClass('active');
     });
 
     // Close mobile menu
-    $('#mobile-menu-close').click(function() {
+    $('#mobile-menu-close').on('click', function() {
         $('header, body').removeClass('active');
     });
 
     // Load additional projects
-    $('#view-more-projects').click(function(e){
+    $('#view-more-projects').on('click', function(e) {
         e.preventDefault();
         $(this).fadeOut(300, function() {
             $('#more-projects').fadeIn(300);

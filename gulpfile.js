@@ -1,22 +1,22 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
-var wait = require('gulp-wait');
-var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const terser = require('gulp-terser');
+const sass = require('gulp-sass')(require('sass'));
+const wait = require('gulp-wait');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('scripts', function() {
     return gulp.src('js/scripts.js')
-        .pipe(plumber(plumber({
+        .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err);
                 this.emit('end');
             }
-        })))
-        .pipe(uglify({
-            output: {
-                comments: '/^!/'
+        }))
+        .pipe(terser({
+            format: {
+                comments: /^!/
             }
         }))
         .pipe(rename({extname: '.min.js'}))
@@ -27,6 +27,7 @@ gulp.task('styles', function () {
     return gulp.src('./scss/styles.scss')
         .pipe(wait(250))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./css'));
 });
 
@@ -34,3 +35,5 @@ gulp.task('watch', function() {
     gulp.watch('js/scripts.js', gulp.series('scripts'));
     gulp.watch('scss/styles.scss', gulp.series('styles'));
 });
+
+gulp.task('default', gulp.series('scripts', 'styles'));
