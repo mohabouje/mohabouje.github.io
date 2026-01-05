@@ -4,7 +4,6 @@ const terser = require('gulp-terser');
 const sass = require('gulp-sass')(require('sass'));
 const wait = require('gulp-wait');
 const rename = require('gulp-rename');
-const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('scripts', function() {
     return gulp.src('js/scripts.js')
@@ -26,8 +25,10 @@ gulp.task('scripts', function() {
 gulp.task('styles', function () {
     return gulp.src('./scss/styles.scss')
         .pipe(wait(250))
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer())
+        .pipe(sass.sync({
+            outputStyle: 'compressed',
+            silenceDeprecations: ['legacy-js-api']
+        }).on('error', sass.logError))
         .pipe(gulp.dest('./css'));
 });
 

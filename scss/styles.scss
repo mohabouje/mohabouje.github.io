@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /*!
     Title: Dev Portfolio Template
     Version: 1.2.1
@@ -35,7 +37,7 @@
 
 // Define base and accent colors
 $base-color: #3498db;
-$base-color-hover: darken($base-color, 10%);
+$base-color-hover: color.adjust($base-color, $lightness: -10%);
 
 // Define background colors
 $background: #fff;
@@ -258,7 +260,7 @@ footer {
         width: 35px;
         height: 35px;
         border-radius: 50%;
-        border: 3px solid lighten($text, 25%);
+        border: 3px solid color.adjust($text, $lightness: 25%);
         text-align:center;
     }
 
@@ -378,7 +380,7 @@ footer {
     }
 
     h2 {
-        color: lighten($base-color, 25%);
+        color: color.adjust($base-color, $lightness: 25%);
         font-weight: 500;
         font-size: 2.25em;
         margin-bottom: 15px;
@@ -414,7 +416,7 @@ footer {
         width: 35px;
         height: 35px;
         border-radius: 50%;
-        border: 3px solid lighten($base-color, 25%);
+        border: 3px solid color.adjust($base-color, $lightness: 25%);
         text-align:center;
     }
 
@@ -456,6 +458,29 @@ footer {
     p {
         color: $text;
         margin: 0;
+    }
+}
+
+#gallery {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    img {
+        width: calc(20% - 15px);
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
     }
 }
 
@@ -645,21 +670,37 @@ footer {
     position: relative;
     max-width: 900px;
     margin: 0 auto 30px auto;
-    overflow: hidden;
     background: #fff;
     border-radius: 4px;
+    display: flex;
+    align-items: stretch;
+    min-height: 300px;
 }
 
 .project-image {
-    float: left;
+    width: 300px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #fafafa;
+
+    img {
+        max-width: 220px;
+        max-height: 220px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
 }
 
 .project-info {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 300px;
-    padding: 15px;
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: left;
 
     h3 {
@@ -673,15 +714,17 @@ footer {
         color: $text;
         margin: 0 0 15px 0;
         font-size: 0.9em;
+        line-height: 1.6;
+    }
+
+    .row {
+        margin: 0;
     }
 }
 
 .no-image {
     .project-info {
-        position: relative;
-        margin: 0;
         padding: 30px 15px;
-        transform: none;
     }
 }
 
@@ -691,11 +734,11 @@ footer {
 
 /*
     -------------------------------
-    ----- 9. Skills Styles -----
+    ----- 9. Github Styles -----
     -------------------------------
 */
 
-#skills {
+#github {
     padding: 50px 15px;
     text-align: center;
 
@@ -704,22 +747,17 @@ footer {
         margin-bottom: 50px;
     }
 
-    ul {
-        display: block;
+    .calendar {
         margin: 0 auto;
-        padding: 0;
-        max-width: 800px;
     }
 
-    li {
-        display: inline-block;
-        margin: 7px;
-        padding: 5px 10px;
-        color: $heading;
-        background: darken($background-alt, 5%);
-        list-style: none;
-        cursor: default;
-        font-size: 1.2em;
+    iframe {
+        display: block;
+        margin: 0 auto;
+    }
+
+    figure {
+        margin: 0 auto;
     }
 }
 
@@ -752,7 +790,7 @@ footer {
         border-radius: 4px;
         border: none;
         margin-bottom: 10px;
-        background: darken($base-color, 15%);
+        background: color.adjust($base-color, $lightness: -15%);
         color: #fff;
         @include transition();
         @include placeholder {
@@ -761,7 +799,7 @@ footer {
 
         &:focus {
             outline: none;
-            background: darken($base-color, 25%);
+            background: color.adjust($base-color, $lightness: -25%);
         }
     }
 
@@ -1000,4 +1038,3 @@ footer {
     }
 
 }
-z
